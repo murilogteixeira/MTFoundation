@@ -8,7 +8,7 @@
 #if os(iOS)
 import UIKit
 
-extension UIViewController: Identifiable {}
-extension UICollectionViewCell: Identifiable {}
-extension UITableViewCell: Identifiable {}
+public extension UIViewController: Identifiable {}
+public extension UICollectionViewCell: Identifiable {}
+public extension UITableViewCell: Identifiable {}
 #endif
