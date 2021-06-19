@@ -7,10 +7,10 @@
 
 import Foundation
 
-protocol Identifiable {
+public protocol Identifiable {
     static var uniqueIdentifier: String { get }
 }
 
-extension Identifiable {
+public extension Identifiable {
     static var uniqueIdentifier: String { String(describing: self) }
 }
