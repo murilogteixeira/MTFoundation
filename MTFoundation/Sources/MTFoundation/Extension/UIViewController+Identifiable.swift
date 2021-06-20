@@ -7,6 +7,6 @@
 
 import UIKit
 
-public extension UIViewController: Identifiable {}
-public extension UICollectionViewCell: Identifiable {}
-public extension UITableViewCell: Identifiable {}
+extension UIViewController: Identifiable {}
+extension UICollectionViewCell: Identifiable {}
+extension UITableViewCell: Identifiable {}
