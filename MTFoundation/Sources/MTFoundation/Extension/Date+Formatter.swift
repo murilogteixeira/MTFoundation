@@ -43,11 +43,13 @@ public extension Date {
     
     var hourString: String {
         Self.formatter.timeStyle = .short
+        Self.formatter.dateStyle = .none
         return Self.formatter.string(from: self)
     }
     
     var dateString: String {
         Self.formatter.dateStyle = .short
+        Self.formatter.timeStyle = .none
         return Self.formatter.string(from: self)
     }
     
