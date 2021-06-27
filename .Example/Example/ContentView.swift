@@ -9,9 +9,6 @@ import SwiftUI
 import MTFoundation
 
 struct ContentView: View {
-    init() {
-        MyLibrary.doSomething()
-    }
     var body: some View {
         Text("Hello, world!")
             .padding()
