@@ -15,7 +15,7 @@ public protocol ImageLoadable {
 
 public extension ImageLoadable {
     func loadImage(from url: URL) {
-        ImageCache.shared.setImage(from: url, in: self)
+        ImageCache.shared.load(from: url, to: self)
     }
     
     mutating func swapImage(to image: UIImage) {
