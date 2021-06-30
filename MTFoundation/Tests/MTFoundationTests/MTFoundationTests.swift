@@ -7,5 +7,9 @@
             // Use XCTAssert and related functions to verify your tests produce the correct
             // results.
 //            XCTAssertEqual(MyLibrary.text, "Hello, World!")
+            let image = UIImageView()
+            image.loadImage(from: URL(string: "https://appicon.co/logo.png")!)
+            
+            UIEdgeInsets(vertical: 0)
         }
     }

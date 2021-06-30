@@ -18,6 +18,15 @@ extension UIEdgeInsets {
         )
     }
     
+    init(vertical: CGFloat, horizontal: CGFloat) {
+        self.init(
+            top: vertical,
+            left: horizontal,
+            bottom: vertical,
+            right: horizontal
+        )
+    }
+    
     init(top: CGFloat? = nil, bottom: CGFloat? = nil, horizontal: CGFloat) {
         self.init(
             top: top ?? 0,
