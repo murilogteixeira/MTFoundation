@@ -52,8 +52,10 @@ public extension ConstraintMaker {
         }
         
         @discardableResult
-        public func to(_ view: UIView, location: EdgeAnchor, constant: CGFloat = 0, isActive: Bool = true) -> [NSLayoutConstraint] {
-            switch edgeAnchor {
+        public func to(_ view: UIView, location: EdgeAnchor? = nil, constant: CGFloat = 0, isActive: Bool = true) -> [NSLayoutConstraint] {
+            var location = location ?? edgeAnchor
+            
+            switch location {
             case .vertical: return vertical(view, constant: constant, isActive: isActive)
             case .horizontal: return horizontal(view, constant: constant, isActive: isActive)
             case .all:
