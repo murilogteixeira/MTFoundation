@@ -20,14 +20,16 @@ public extension UIImage {
      }
 
      static func load(from url: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
-         DispatchQueue.main.async {
+         DispatchQueue.global().async {
              do {
                  let data = try Data(contentsOf: url)
-                 guard let image = UIImage(data: data) else {
-                     completion(.failure(URLLoaderError.conversionError))
-                     return
-                 }
-                 completion(.success(image))
+                DispatchQueue.main.async {
+                    guard let image = UIImage(data: data) else {
+                        completion(.failure(URLLoaderError.conversionError))
+                        return
+                    }
+                    completion(.success(image))
+                }
              } catch {
                  completion(.failure(URLLoaderError.downloadError))
              }
