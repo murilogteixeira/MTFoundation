@@ -13,12 +13,12 @@ public extension ConstraintMaker {
         
         public typealias AnchorType = NSLayoutXAxisAnchor
         
-        case leading, trailing, safeLeading, safeTrailing, center
+        case leading, trailing, leadingSafe, trailingSafe, center
         
         public var isReverseConstant: Bool {
             switch self {
-            case .safeTrailing, .trailing: return true
-            case .leading, .safeLeading, .center: return false
+            case .trailingSafe, .trailing: return true
+            case .leading, .leadingSafe, .center: return false
             }
         }
         
@@ -26,8 +26,8 @@ public extension ConstraintMaker {
             switch self {
             case .leading: return view.leadingAnchor
             case .trailing: return view.trailingAnchor
-            case .safeLeading: return view.safeAreaLayoutGuide.leadingAnchor
-            case .safeTrailing: return view.safeAreaLayoutGuide.trailingAnchor
+            case .leadingSafe: return view.safeAreaLayoutGuide.leadingAnchor
+            case .trailingSafe: return view.safeAreaLayoutGuide.trailingAnchor
             case .center: return view.centerXAnchor
             }
         }

@@ -10,7 +10,7 @@ import UIKit
 public extension ConstraintMaker {
     
     enum EdgeAnchor {
-        case vertical, horizontal, all
+        case vertical, horizontal, verticalSafe, horizontalSafe, all, allSafe
     }
     
 }

@@ -1,14 +1,14 @@
 //
-//  ExampleApp.swift
-//  Example
+//  SwiftUIExampleApp.swift
+//  SwiftUIExample
 //
-//  Created by Murilo Teixeira on 19/06/21.
+//  Created by Murilo Teixeira on 29/06/21.
 //
 
 import SwiftUI
 
 @main
-struct ExampleApp: App {
+struct SwiftUIExampleApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

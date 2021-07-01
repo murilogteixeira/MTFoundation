@@ -1,13 +1,14 @@
 //
-//  ExampleTests.swift
-//  ExampleTests
+//  SwiftUIExampleTests.swift
+//  SwiftUIExampleTests
 //
-//  Created by Murilo Teixeira on 27/06/21.
+//  Created by Murilo Teixeira on 29/06/21.
 //
 
 import XCTest
+@testable import SwiftUIExample
 
-class ExampleTests: XCTestCase {
+class SwiftUIExampleTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -24,7 +25,7 @@ class ExampleTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        measure {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

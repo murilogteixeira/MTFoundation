@@ -19,7 +19,7 @@ public extension ConstraintMaker {
         private unowned let view: UIView
         private let origin: Anchor
         
-        private func constraint(in anchor: NSLayoutAnchor<Anchor.AnchorType>, with relation: ConstraintMaker.Relation) -> NSLayoutConstraint {
+        private func constraint(in anchor: NSLayoutAnchor<Anchor.AnchorType>, with relation: Relation) -> NSLayoutConstraint {
             let anchor = origin.layoutAnchor(to: view)
             switch relation {
             case .equal: return anchor.constraint(equalTo: anchor)
@@ -32,7 +32,7 @@ public extension ConstraintMaker {
         public func to(
             _ view: UIView,
             location: Anchor? = nil,
-            relation: ConstraintMaker.Relation = .equal,
+            relation: Relation = .equal,
             constant: CGFloat = 0,
             priority: UILayoutPriority = .required,
             isActive: Bool = true

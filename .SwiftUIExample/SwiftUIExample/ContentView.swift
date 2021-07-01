@@ -1,12 +1,11 @@
 //
 //  ContentView.swift
-//  Example
+//  SwiftUIExample
 //
-//  Created by Murilo Teixeira on 19/06/21.
+//  Created by Murilo Teixeira on 29/06/21.
 //
 
 import SwiftUI
-import MTFoundation
 
 struct ContentView: View {
     var body: some View {
