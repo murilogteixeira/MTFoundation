@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension ConstraintMaker {
+public extension AutoLayoutKit {
     
     class Size: Pin<SizeAnchor> {
         
@@ -29,12 +29,12 @@ public extension ConstraintMaker {
             }
         }
         
-        private func constraint(in anchor: NSLayoutDimension, with relation: Relation, and multiplier: CGFloat) -> NSLayoutConstraint {
+        private func constraint(in inAnchor: NSLayoutDimension, with relation: Relation, and multiplier: CGFloat) -> NSLayoutConstraint {
             let anchor = origin.layoutDimension(to: view)
             switch relation {
-            case .equal: return anchor.constraint(equalTo: anchor, multiplier: multiplier)
-            case .less: return view.heightAnchor.constraint(lessThanOrEqualTo: anchor, multiplier: multiplier)
-            case .greater: return view.heightAnchor.constraint(greaterThanOrEqualTo: anchor, multiplier: multiplier)
+            case .equal: return anchor.constraint(equalTo: inAnchor, multiplier: multiplier)
+            case .less: return view.heightAnchor.constraint(lessThanOrEqualTo: inAnchor, multiplier: multiplier)
+            case .greater: return view.heightAnchor.constraint(greaterThanOrEqualTo: inAnchor, multiplier: multiplier)
             }
         }
         

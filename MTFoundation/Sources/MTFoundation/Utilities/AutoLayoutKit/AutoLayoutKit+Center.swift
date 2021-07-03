@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension ConstraintMaker {
+public extension AutoLayoutKit {
     
     class Center {
         
@@ -20,8 +20,8 @@ public extension ConstraintMaker {
         @discardableResult
         public func to(_ view: UIView, isActive: Bool = true) -> [NSLayoutConstraint] {
             [
-                self.view.pin.centerX.to(view, isActive: isActive),
-                self.view.pin.centerY.to(view, isActive: isActive)
+                self.view.pinCenterX.to(view, isActive: isActive),
+                self.view.pinCenterY.to(view, isActive: isActive)
             ]
         }
     }

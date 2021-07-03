@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		6998437F268C1130007FDB4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6998437E268C1130007FDB4C /* Preview Assets.xcassets */; };
 		6998438A268C1130007FDB4C /* SwiftUIExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69984389268C1130007FDB4C /* SwiftUIExampleTests.swift */; };
 		69984395268C1130007FDB4C /* SwiftUIExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69984394268C1130007FDB4C /* SwiftUIExampleUITests.swift */; };
+		69C2BB5D268F788C00D78DD8 /* MTFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 69C2BB5C268F788C00D78DD8 /* MTFoundation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69C2BB5D268F788C00D78DD8 /* MTFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +81,7 @@
 				69984388268C1130007FDB4C /* SwiftUIExampleTests */,
 				69984393268C1130007FDB4C /* SwiftUIExampleUITests */,
 				69984375268C112E007FDB4C /* Products */,
+				69C2BB5B268F788C00D78DD8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +133,13 @@
 			path = SwiftUIExampleUITests;
 			sourceTree = "<group>";
 		};
+		69C2BB5B268F788C00D78DD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +156,9 @@
 			dependencies = (
 			);
 			name = SwiftUIExample;
+			packageProductDependencies = (
+				69C2BB5C268F788C00D78DD8 /* MTFoundation */,
+			);
 			productName = SwiftUIExample;
 			productReference = 69984374268C112E007FDB4C /* SwiftUIExample.app */;
 			productType = "com.apple.product-type.application";
@@ -574,6 +587,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		69C2BB5C268F788C00D78DD8 /* MTFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MTFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6998436C268C112E007FDB4C /* Project object */;
 }

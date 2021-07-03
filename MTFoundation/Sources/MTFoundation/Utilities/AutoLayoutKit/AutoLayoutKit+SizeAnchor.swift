@@ -7,9 +7,9 @@
 
 import UIKit
 
-public extension ConstraintMaker {
+public extension AutoLayoutKit {
     
-    enum SizeAnchor: ConstraintMakerAnchor {
+    enum SizeAnchor: AutoLayoutKitAnchor {
         public typealias AnchorType = NSLayoutDimension
         
         case width, height

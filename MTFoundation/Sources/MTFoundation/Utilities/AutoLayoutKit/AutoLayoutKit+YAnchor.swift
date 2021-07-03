@@ -7,9 +7,9 @@
 
 import UIKit
 
-public extension ConstraintMaker {
+public extension AutoLayoutKit {
     
-    enum YAnchor: ConstraintMakerAnchor {
+    enum YAnchor: AutoLayoutKitAnchor {
         
         public typealias AnchorType = NSLayoutYAxisAnchor
         

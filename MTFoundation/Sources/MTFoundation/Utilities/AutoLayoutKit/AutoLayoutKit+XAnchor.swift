@@ -7,9 +7,9 @@
 
 import UIKit
 
-public extension ConstraintMaker {
+public extension AutoLayoutKit {
     
-    enum XAnchor: ConstraintMakerAnchor {
+    enum XAnchor: AutoLayoutKitAnchor {
         
         public typealias AnchorType = NSLayoutXAxisAnchor
         

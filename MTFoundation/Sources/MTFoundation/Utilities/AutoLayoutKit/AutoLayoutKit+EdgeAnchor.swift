@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension ConstraintMaker {
+public extension AutoLayoutKit {
     
     enum EdgeAnchor {
         case vertical, horizontal, verticalSafe, horizontalSafe, all, allSafe

@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension ConstraintMaker {
+public extension AutoLayoutKit {
     
     enum Relation {
         case equal, greater, less

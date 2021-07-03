@@ -7,9 +7,9 @@
 
 import UIKit
 
-public extension ConstraintMaker {
+public extension AutoLayoutKit {
     
-    class Pin<Anchor: ConstraintMakerAnchor> {
+    class Pin<Anchor: AutoLayoutKitAnchor> {
         
         public init(view: UIView, origin: Anchor) {
             self.view = view
@@ -19,12 +19,12 @@ public extension ConstraintMaker {
         private unowned let view: UIView
         private let origin: Anchor
         
-        private func constraint(in anchor: NSLayoutAnchor<Anchor.AnchorType>, with relation: Relation) -> NSLayoutConstraint {
+        private func constraint(in inAnchor: NSLayoutAnchor<Anchor.AnchorType>, with relation: Relation) -> NSLayoutConstraint {
             let anchor = origin.layoutAnchor(to: view)
             switch relation {
-            case .equal: return anchor.constraint(equalTo: anchor)
-            case .greater: return anchor.constraint(greaterThanOrEqualTo: anchor)
-            case .less: return anchor.constraint(lessThanOrEqualTo: anchor)
+            case .equal: return anchor.constraint(equalTo: inAnchor)
+            case .greater: return anchor.constraint(greaterThanOrEqualTo: inAnchor)
+            case .less: return anchor.constraint(lessThanOrEqualTo: inAnchor)
             }
         }
         

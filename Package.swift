@@ -10,7 +10,8 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "MTFoundation",
-            targets: ["MTFoundation"]),
+            targets: ["MTFoundation"]
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -22,10 +23,12 @@ let package = Package(
         .target(
             name: "MTFoundation",
             dependencies: [],
-            path: "MTFoundation/Sources"),
+            path: "MTFoundation/Sources"
+        ),
         .testTarget(
             name: "MTFoundationTests",
             dependencies: ["MTFoundation"],
-            path: "MTFoundation/Tests/MTFoundationTests"),
+            path: "MTFoundation/Tests/MTFoundationTests"
+        ),
     ]
 )

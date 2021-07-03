@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol ConstraintMakerAnchor {
+public protocol AutoLayoutKitAnchor {
     associatedtype AnchorType: AnyObject
     
     var isReverseConstant: Bool { get }
