@@ -14,6 +14,7 @@
 		69984348268C1102007FDB4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69984346268C1102007FDB4C /* LaunchScreen.storyboard */; };
 		69984353268C1102007FDB4C /* UIKitExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69984352268C1102007FDB4C /* UIKitExampleTests.swift */; };
 		6998435E268C1102007FDB4C /* UIKitExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6998435D268C1102007FDB4C /* UIKitExampleUITests.swift */; };
+		69A39515268FE4C200A0F1F2 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A39514268FE4C200A0F1F2 /* View.swift */; };
 		69C2BB5A268F788400D78DD8 /* MTFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 69C2BB59268F788400D78DD8 /* MTFoundation */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		69984359268C1102007FDB4C /* UIKitExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIKitExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6998435D268C1102007FDB4C /* UIKitExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExampleUITests.swift; sourceTree = "<group>"; };
 		6998435F268C1102007FDB4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69A39514268FE4C200A0F1F2 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				6998433B268C10FD007FDB4C /* AppDelegate.swift */,
 				6998433D268C10FD007FDB4C /* SceneDelegate.swift */,
+				69A39514268FE4C200A0F1F2 /* View.swift */,
 				6998433F268C10FD007FDB4C /* ViewController.swift */,
 				69984344268C1102007FDB4C /* Assets.xcassets */,
 				69984346268C1102007FDB4C /* LaunchScreen.storyboard */,
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69A39515268FE4C200A0F1F2 /* View.swift in Sources */,
 				69984340268C10FD007FDB4C /* ViewController.swift in Sources */,
 				6998433C268C10FD007FDB4C /* AppDelegate.swift in Sources */,
 				6998433E268C10FD007FDB4C /* SceneDelegate.swift in Sources */,

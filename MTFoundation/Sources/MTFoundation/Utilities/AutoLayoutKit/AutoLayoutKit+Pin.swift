@@ -42,6 +42,8 @@ public extension AutoLayoutKit {
             
             let constraint = self.constraint(in: layoutAnchor, with: relation)
             
+            constraint.constant = constant
+            
             if origin.isReverseConstant { constraint.constant *= -1 }
             
             constraint.priority = priority

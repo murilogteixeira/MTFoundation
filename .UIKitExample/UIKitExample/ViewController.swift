@@ -9,15 +9,16 @@ import UIKit
 import MTFoundation
 
 class ViewController: UIViewController {
+    
+    let mainView = View()
+    
+    override func loadView() {
+        view = mainView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let view = UIView(frame: .zero)
-        view.backgroundColor = .red
-        self.view.addSubview(view)
-        view.pinEdge.to(self.view)
     }
 
 }
-
