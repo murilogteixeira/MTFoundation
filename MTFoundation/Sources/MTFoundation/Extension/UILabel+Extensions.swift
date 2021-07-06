@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UILabel {
+public extension UILabel {
     
     convenience init(_ text: String? = nil, textAlignment: NSTextAlignment? = nil, numberOfLines: Int? = nil) {
         self.init(frame: .zero)
