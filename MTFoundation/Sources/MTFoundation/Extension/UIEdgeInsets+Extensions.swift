@@ -45,4 +45,7 @@ public extension UIEdgeInsets {
         )
     }
     
+    init(_ size: CGFloat) {
+        self.init(vertical: size, horizontal: size)
+    }
 }
