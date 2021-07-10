@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GradientView: UIView {
+public class GradientView: UIView {
     
     enum Point {
         case top, left, bottom, right, topLeft, topRight, bottomLeft, bottomRight
@@ -26,10 +26,8 @@ class GradientView: UIView {
         }
     }
     
-    override class var layerClass: AnyClass { CAGradientLayer.self }
+    public override class var layerClass: AnyClass { CAGradientLayer.self }
     var gradientLayer: CAGradientLayer { self.layer as? CAGradientLayer ?? CAGradientLayer() }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     func setupGradient(colors: [UIColor], locations: [NSNumber]? = nil, startPoint: Point? = nil, endPoint: Point? = nil) {
         gradientLayer.colors = colors.map { $0.cgColor }
