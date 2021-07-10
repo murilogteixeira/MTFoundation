@@ -9,18 +9,18 @@ import UIKit
 
 public protocol ImageLoadable {
     var image: UIImage? { get set }
-    func loadImage(from url: URL)
+    mutating func loadImage(from url: URL, whileLoadingShow placeholder: UIImage?)
     func swapImage(to image: UIImage)
 }
 
 public extension ImageLoadable {
-    func loadImage(from url: URL, whileLoadingShow placeholder: UIImage) {
+    mutating func loadImage(from url: URL, whileLoadingShow placeholder: UIImage? = nil) {
         let image = ImageCache.shared.getImage(from: url.absoluteString)
         if let image = image {
             swapImage(to: image)
         }
         else {
-            swapImage(to: placeholder)
+            swapImage(to: placeholder ?? UIImage())
             ImageCache.shared.load(from: url, to: self)
         }
     }

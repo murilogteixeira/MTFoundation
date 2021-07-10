@@ -13,7 +13,10 @@ public extension UITableView {
         register(cellClass, forCellReuseIdentifier: cellClass.uniqueIdentifier)
     }
     
-    func dequeueReusableCell<T: UITableViewCell>(with cellClass: T.Type, for indexPath: IndexPath) -> UITableViewCell {
-        dequeueReusableCell(withIdentifier: cellClass.uniqueIdentifier, for: indexPath)
+    func dequeueReusableCell<T: UITableViewCell>(with cellClass: T.Type, for indexPath: IndexPath) -> T {
+        if let cell = dequeueReusableCell(withIdentifier: cellClass.uniqueIdentifier, for: indexPath) as? T {
+            return cell
+        }
+        return T()
     }
 }
