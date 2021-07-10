@@ -29,7 +29,7 @@ public class GradientView: UIView {
     public override class var layerClass: AnyClass { CAGradientLayer.self }
     var gradientLayer: CAGradientLayer { self.layer as? CAGradientLayer ?? CAGradientLayer() }
     
-    func setupGradient(colors: [UIColor], locations: [NSNumber]? = nil, startPoint: Point? = nil, endPoint: Point? = nil) {
+    public func setup(colors: [UIColor], locations: [NSNumber]? = nil, startPoint: Point? = nil, endPoint: Point? = nil) {
         gradientLayer.colors = colors.map { $0.cgColor }
         gradientLayer.locations = locations ?? [0, 1]
         gradientLayer.startPoint = startPoint?.value ?? Point.top.value
