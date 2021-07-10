@@ -59,8 +59,28 @@ public extension Date {
         return Self.formatter.string(from: self)
     }
     
+    var iso8601: String { return Formatter.iso8601.string(from: self) }
+    var iso8601withFractionalSeconds: String { return Formatter.iso8601withFractionalSeconds.string(from: self) }
+
     func date(with format: DateFormat) -> String {
         Self.formatter.dateFormat = format.rawValue
         return Self.formatter.string(from: self)
     }
+}
+
+public extension ISO8601DateFormatter {
+    convenience init(_ formatOptions: Options) {
+        self.init()
+        self.formatOptions = formatOptions
+    }
+}
+
+public extension Formatter {
+    static let iso8601 = ISO8601DateFormatter([.withInternetDateTime])
+    static let iso8601withFractionalSeconds = ISO8601DateFormatter([.withInternetDateTime, .withFractionalSeconds])
+}
+
+public extension String {
+    var iso8601: Date? { return Formatter.iso8601.date(from: self) }
+    var iso8601withFractionalSeconds: Date? { return Formatter.iso8601withFractionalSeconds.date(from: self) }
 }
