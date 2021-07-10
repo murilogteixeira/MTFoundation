@@ -9,7 +9,7 @@ import UIKit
 
 public class GradientView: UIView {
     
-    enum Point {
+    public enum Point {
         case top, left, bottom, right, topLeft, topRight, bottomLeft, bottomRight
         
         var value: CGPoint {
