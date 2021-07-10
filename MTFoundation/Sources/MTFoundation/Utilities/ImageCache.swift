@@ -8,16 +8,16 @@
 import UIKit
 
 public final class ImageCache {
-    static let shared = ImageCache()
+    public static let shared = ImageCache()
     private init() {}
     
     private var cache = NSCache<NSString, UIImage>()
     
-    func getImage(from url: String) -> UIImage? {
+    public func getImage(from url: String) -> UIImage? {
         cache.object(forKey: url as NSString)
     }
     
-    func load(from url: URL, to imageView: ImageLoadable) {
+    public func load(from url: URL, to imageView: ImageLoadable) {
         DispatchQueue.main.async { [weak self] in
             if let image = self?.cache.object(forKey: url.path as NSString) {
                 imageView.swapImage(to: image)
