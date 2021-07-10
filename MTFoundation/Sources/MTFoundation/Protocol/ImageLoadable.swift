@@ -14,7 +14,11 @@ public protocol ImageLoadable {
 }
 
 public extension ImageLoadable {
-    mutating func loadImage(from url: URL, whileLoadingShow placeholder: UIImage? = nil) {
+    mutating func loadImage(
+        from url: URL,
+        whileLoadingShow placeholder: UIImage? = nil,
+        completion: @escaping () -> Void
+    ) {
         let image = ImageCache.shared.getImage(from: url.absoluteString)
         if let image = image {
             self.image = image
@@ -23,6 +27,7 @@ public extension ImageLoadable {
             swapImage(to: placeholder ?? UIImage())
             ImageCache.shared.load(from: url, to: self)
         }
+        completion()
     }
     
     mutating func swapImage(to image: UIImage) {
