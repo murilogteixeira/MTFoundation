@@ -17,7 +17,7 @@ public final class ImageCache {
         cache.object(forKey: url as NSString)
     }
     
-    public func load(from url: URL, to imageView: ImageLoadable) {
+    public func load(from url: URL, into imageView: ImageLoadable) {
         DispatchQueue.main.async { [weak self] in
             if let image = self?.getImage(from: url.absoluteString) {
                 imageView.image = image
