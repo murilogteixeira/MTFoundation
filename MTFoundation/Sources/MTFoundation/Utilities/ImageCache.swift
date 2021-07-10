@@ -13,18 +13,20 @@ public final class ImageCache {
     
     private var cache = NSCache<NSString, UIImage>()
     
-    func load(from url: URL, to imageView: ImageLoadable, completion: ((UIImage) -> Void)? = nil) {
+    func getImage(from url: String) -> UIImage? {
+        cache.object(forKey: url as NSString)
+    }
+    
+    func load(from url: URL, to imageView: ImageLoadable) {
         DispatchQueue.main.async { [weak self] in
             if let image = self?.cache.object(forKey: url.path as NSString) {
                 imageView.swapImage(to: image)
-                completion?(image)
             } else {
                 UIImage.load(from: url) { result in
                     switch result {
                     case .success(let image):
                         self?.cache.setObject(image, forKey: url.path as NSString)
                         imageView.swapImage(to: image)
-                        completion?(image)
                     case .failure(let error):
                         print("Image load from URL failure: \(error.localizedDescription)")
                     }
