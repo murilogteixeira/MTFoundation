@@ -9,7 +9,7 @@ import UIKit
 
 public protocol ImageLoadable {
     var image: UIImage? { get set }
-    mutating func loadImage(from url: URL, whileLoadingShow placeholder: UIImage?)
+    mutating func loadImage(from url: URL, whileLoadingShow placeholder: UIImage?, completion: (() -> Void)?)
     func swapImage(to image: UIImage)
 }
 
@@ -17,7 +17,7 @@ public extension ImageLoadable {
     mutating func loadImage(
         from url: URL,
         whileLoadingShow placeholder: UIImage? = nil,
-        completion: @escaping () -> Void
+        completion: (() -> Void)? = nil
     ) {
         let image = ImageCache.shared.getImage(from: url.absoluteString)
         if let image = image {
@@ -27,7 +27,7 @@ public extension ImageLoadable {
             swapImage(to: placeholder ?? UIImage())
             ImageCache.shared.load(from: url, to: self)
         }
-        completion()
+        completion?()
     }
     
     mutating func swapImage(to image: UIImage) {
