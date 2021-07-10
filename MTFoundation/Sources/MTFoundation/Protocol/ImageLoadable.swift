@@ -19,7 +19,7 @@ public extension ImageLoadable {
         whileLoadingShow placeholder: UIImage? = nil,
         completion: (() -> Void)? = nil
     ) {
-        let image = ImageCache.shared.getImage(from: url.absoluteString)
+        let image = ImageCache.shared.getImage(from: url.path)
         self.image = image ?? placeholder
         if image == nil { ImageCache.shared.load(from: url, into: self) }
         completion?()
