@@ -20,11 +20,8 @@ public extension ImageLoadable {
         completion: (() -> Void)? = nil
     ) {
         let image = ImageCache.shared.getImage(from: url.absoluteString)
-        if let image = image {
-            self.image = image
-        }
-        else {
-            swapImage(to: placeholder ?? UIImage())
+        self.image = image ?? placeholder
+        if image == nil {
             ImageCache.shared.load(from: url, to: self)
         }
         completion?()
