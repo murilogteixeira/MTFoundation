@@ -9,9 +9,17 @@ import UIKit
 
 public extension UILabel {
     
-    convenience init(_ text: String? = nil, textAlignment: NSTextAlignment? = nil, numberOfLines: Int? = nil) {
+    convenience init(
+        _ text: String? = nil,
+        font: UIFont? = nil,
+        size: CGFloat = 17,
+        textAlignment: NSTextAlignment? = nil,
+        numberOfLines: Int? = nil
+    ) {
         self.init(frame: .zero)
         self.text = text
+        self.font = font ?? .systemFont(ofSize: size)
+        self.font = self.font.withSize(size)
         self.textAlignment = textAlignment ?? .left
         self.numberOfLines = numberOfLines ?? 1
     }
