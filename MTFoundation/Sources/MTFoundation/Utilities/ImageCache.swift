@@ -20,7 +20,7 @@ public final class ImageCache {
     public func load(from url: URL, to imageView: ImageLoadable) {
         DispatchQueue.main.async { [weak self] in
             if let image = self?.cache.object(forKey: url.path as NSString) {
-                imageView.swapImage(to: image)
+                imageView.image = image
             } else {
                 UIImage.load(from: url) { result in
                     switch result {
