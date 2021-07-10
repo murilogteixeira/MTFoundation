@@ -17,7 +17,7 @@ public extension ImageLoadable {
     mutating func loadImage(from url: URL, whileLoadingShow placeholder: UIImage? = nil) {
         let image = ImageCache.shared.getImage(from: url.absoluteString)
         if let image = image {
-            swapImage(to: image)
+            self.image = image
         }
         else {
             swapImage(to: placeholder ?? UIImage())
