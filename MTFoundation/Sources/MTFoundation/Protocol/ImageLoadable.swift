@@ -7,14 +7,14 @@
 
 import UIKit
 
-public protocol ImageLoadable {
+public protocol ImageLoadable: AnyObject {
     var image: UIImage? { get set }
-    mutating func loadImage(from url: URL, whileLoadingShow placeholder: UIImage?, completion: (() -> Void)?)
+    func loadImage(from url: URL, whileLoadingShow placeholder: UIImage?, completion: (() -> Void)?)
     func swapImage(to image: UIImage)
 }
 
 public extension ImageLoadable {
-    mutating func loadImage(
+    func loadImage(
         from url: URL,
         whileLoadingShow placeholder: UIImage? = nil,
         completion: (() -> Void)? = nil
@@ -27,14 +27,15 @@ public extension ImageLoadable {
         completion?()
     }
     
-    mutating func swapImage(to image: UIImage) {
+    func swapImage(to image: UIImage) {
         self.image = image
     }
 }
 
 public extension ImageLoadable where Self: UIView {
     func swapImage(to image: UIImage) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             UIView.transition(
                 with: self, duration: 0.5, options: .transitionCrossDissolve,
                 animations: { [weak self] in
