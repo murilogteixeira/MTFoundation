@@ -10,9 +10,9 @@ import UIKit
 public extension UIStackView {
     convenience init(
         axis: NSLayoutConstraint.Axis,
-        spacing: CGFloat,
-        alignment: Alignment,
-        distribution: Distribution,
+        spacing: CGFloat = 0,
+        alignment: Alignment = .fill,
+        distribution: Distribution = .fill,
         layoutMargins: UIEdgeInsets? = nil
     ) {
         self.init(frame: .zero)
