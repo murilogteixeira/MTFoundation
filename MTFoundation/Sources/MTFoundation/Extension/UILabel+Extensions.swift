@@ -11,6 +11,7 @@ public extension UILabel {
     
     convenience init(
         _ text: String? = nil,
+        color: UIColor = .label,
         font: UIFont? = nil,
         size: CGFloat = 17,
         textAlignment: NSTextAlignment? = nil,
