@@ -27,7 +27,7 @@ let package = Package(
             dependencies: ["MTAutoLayoutKit"],
             path: "MTFoundation/Sources",
             resources: [
-                .process("player.html")
+                .process("MTFoundation/Resources/player.html")
             ]
         ),
         .testTarget(

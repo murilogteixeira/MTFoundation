@@ -33,6 +33,6 @@ extension View: ViewCode {
     func setupConstraints() {
         view.pinTop.to(self)
         view.pinEdgeX.to(self)
-        view.pinBottom.to(self, constant: 50)
+        view.pinBottom.to(self)
     }
 }

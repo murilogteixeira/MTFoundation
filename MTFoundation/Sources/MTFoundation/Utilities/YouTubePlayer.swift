@@ -250,7 +250,7 @@ public class YouTubePlayer: UIView {
     private func getHTMLContent() throws -> String {
         let file = "player"
         let type = "html"
-        guard let path = Bundle.main.path(forResource: file, ofType: type) else {
+        guard let path = Bundle.module.path(forResource: file, ofType: type) else {
             fatalError("File player.html not found")
         }
         
