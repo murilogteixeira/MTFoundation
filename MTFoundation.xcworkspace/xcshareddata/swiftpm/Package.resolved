@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "MTAutoLayoutKit",
+        "repositoryURL": "https://github.com/murilogteixeira/MTAutoLayoutKit",
+        "state": {
+          "branch": null,
+          "revision": "f3b99a519b06f2f9f7bc7356d7adbde4e01e51b5",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
