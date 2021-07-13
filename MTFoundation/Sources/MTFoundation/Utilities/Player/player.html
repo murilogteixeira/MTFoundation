@@ -1,0 +1,87 @@
+<!-- Documentation YouTube iFrame API -->
+<!-- https://developers.google.com/youtube/iframe_api_reference?hl=pt-br -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        body {
+            margin: 0;
+            width: 100%%;
+            height: 100%%;
+            background-color: #000000;
+        }
+
+        html {
+            width: 100%%;
+            height: 100%%;
+            background-color: #000000;
+        }
+
+        .embed-container iframe,
+        .embed-container object,
+        .embed-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%% !important;
+            height: 100%% !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="embed-container">
+        <div id="player"></div>
+    </div>
+
+    <script>
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                playerVars: , // will be configured in the view
+                height: window.innerHeight,
+                width: window.innerWidth,
+                videoId: , // will be configured in the view
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange,
+                    'onError': onPlayerError
+                }
+            });
+
+            window.setInterval(() => {
+                if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+                    window.webkit.messageHandlers.currentTime.postMessage(player.getCurrentTime())
+                }
+            }, 500)
+        }
+
+        function onPlayerReady(event) {
+            window.webkit.messageHandlers.onReady.postMessage('');
+        }
+
+        function onPlayerStateChange(event) {
+            window.webkit.messageHandlers.state.postMessage(event.data);
+        }
+
+        function onPlayerError(event) {
+            window.webkit.messageHandlers.error.postMessage(event.data);
+        }
+
+        window.onresize = () => {
+            player.setSize(window.innerWidth, window.innerHeight);
+        }
+    </script>
+</body>
+
+</html>
