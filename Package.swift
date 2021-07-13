@@ -25,7 +25,10 @@ let package = Package(
         .target(
             name: "MTFoundation",
             dependencies: ["MTAutoLayoutKit"],
-            path: "MTFoundation/Sources"
+            path: "MTFoundation/Sources",
+            resources: [
+                .process("player.html")
+            ]
         ),
         .testTarget(
             name: "MTFoundationTests",
