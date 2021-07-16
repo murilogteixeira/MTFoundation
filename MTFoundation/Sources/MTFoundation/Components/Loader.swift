@@ -29,7 +29,7 @@ public class Loader: UIView {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     // MARK: Methods
-    static func add(in view: UIView) {
+    public static func add(in view: UIView) {
         let loader = Loader()
         view.addSubview(loader)
         loader.pinEdge.to(view)
