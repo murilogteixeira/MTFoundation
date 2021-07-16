@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Loader: UIView {
+public class Loader: UIView {
 
     // MARK: Attributes
 
@@ -26,6 +26,8 @@ class Loader: UIView {
         setupViewCode()
     }
 
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
     // MARK: Methods
     static func add(in view: UIView) {
         let loader = Loader()
@@ -36,15 +38,15 @@ class Loader: UIView {
 
 // MARK: ViewCode
 extension Loader: ViewCode {
-    func setupHierarchy() {
+    public func setupHierarchy() {
         addSubview(activityIndicator)
     }
 
-    func setupConstraints() {
+    public func setupConstraints() {
         activityIndicator.pinCenter.to(self)
     }
 
-    func setupAdditionalConfiguration() {
+    public func setupAdditionalConfiguration() {
         backgroundColor = .black.withAlphaComponent(0.5)
     }
 }
