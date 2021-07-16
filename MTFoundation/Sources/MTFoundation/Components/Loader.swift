@@ -12,7 +12,7 @@ public class Loader: UIView {
     // MARK: Attributes
 
     // MARK: Components
-    private let activityIndicator: UIActivityIndicatorView = {
+    public let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.style = .gray
         activityIndicator.hidesWhenStopped = true
@@ -33,6 +33,11 @@ public class Loader: UIView {
         let loader = Loader()
         view.addSubview(loader)
         loader.pinEdge.to(view)
+    }
+
+    public static func remove(from view: UIView) {
+        guard let loader = view.subviews.first(where: { $0 is Loader }) else { return }
+        loader.removeFromSuperview()
     }
 }
 
