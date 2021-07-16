@@ -169,15 +169,15 @@ public class YouTubePlayer: UIView {
     }
     
     // MARK: Player Methods
-    public func load(byVideoURL url: String, playerVariables: [PlayerVariables]? = nil) {
+    public func load(videoBy url: URL, playerVariables: [PlayerVariables]? = nil) {
         guard let videoID = getYoutubeID(from: url) else {
             delegate?.player(self, anErrorOcurred: PlayerErrorState.invalidParameter)
             return
         }
-        load(byVideoID: videoID, playerVariables: playerVariables)
+        load(videoBy: videoID, playerVariables: playerVariables)
     }
     
-    public func load(byVideoID videoID: String, playerVariables: [PlayerVariables]? = nil) {
+    public func load(videoBy videoID: String, playerVariables: [PlayerVariables]? = nil) {
         
         do {
             if let playerVars = playerVariables { self.playerVariables = playerVars }
@@ -234,17 +234,18 @@ public class YouTubePlayer: UIView {
     }
     
     // MARK: Methods
-    private func getYoutubeID(from string: String) -> String? {
+    private func getYoutubeID(from url: URL) -> String? {
+        let url = url.path
         let pattern = "((?<=(v|V)/)|(?<=be/)|(?<=(\\?|\\&)v=)|(?<=embed/))([\\w-]++)"
-        
+
         let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive)
-        let range = NSRange(location: 0, length: string.count)
-        
-        guard let result = regex?.firstMatch(in: string, range: range) else {
+        let range = NSRange(location: 0, length: url.count)
+
+        guard let result = regex?.firstMatch(in: url, range: range) else {
             return nil
         }
         
-        return (string as NSString).substring(with: result.range)
+        return (url as NSString).substring(with: result.range)
     }
     
     private func getHTMLContent() throws -> String {
