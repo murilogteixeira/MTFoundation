@@ -20,8 +20,10 @@ public class Loader: UIView {
         return activityIndicator
     }()
 
+    public let activityIndicatorView = UIView(backgroundColor: .white.withAlphaComponent(0.2))
+
     // MARK: Initializers
-    private init() {
+    public init() {
         super.init(frame: .zero)
         setupViewCode()
     }
@@ -29,11 +31,9 @@ public class Loader: UIView {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     // MARK: Methods
-    public static func add(in view: UIView) -> Loader {
-        let loader = Loader()
+    public static func add(_ loader: Loader, in view: UIView) {
         view.addSubview(loader)
         loader.pinEdge.to(view)
-        return loader
     }
 
     public static func remove(from view: UIView) {
@@ -45,14 +45,20 @@ public class Loader: UIView {
 // MARK: ViewCode
 extension Loader: ViewCode {
     public func setupHierarchy() {
-        addSubview(activityIndicator)
+        addSubview(activityIndicatorView)
+        activityIndicatorView.addSubview(activityIndicator)
     }
 
     public func setupConstraints() {
-        activityIndicator.pinCenter.to(self)
+        activityIndicatorView.pinCenter.to(self)
+        activityIndicatorView.pinWidth.constant(50)
+        activityIndicatorView.pinHeight.to(activityIndicatorView, location: .width)
+
+        activityIndicator.pinCenter.to(activityIndicatorView)
     }
 
     public func setupAdditionalConfiguration() {
         backgroundColor = .black.withAlphaComponent(0.5)
+        activityIndicatorView.cornerRadius(8)
     }
 }

@@ -12,7 +12,7 @@ class View: UIView {
 
     let view: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = .red
+        view.backgroundColor = .black
         return view
     }()
     
@@ -34,5 +34,12 @@ extension View: ViewCode {
         view.pinTop.to(self)
         view.pinEdgeX.to(self)
         view.pinBottom.to(self)
+    }
+
+    func setupAdditionalConfiguration() {
+        let loader = Loader()
+        loader.activityIndicator.style = .medium
+        loader.activityIndicator.color = .white
+        Loader.add(loader, in: self)
     }
 }
