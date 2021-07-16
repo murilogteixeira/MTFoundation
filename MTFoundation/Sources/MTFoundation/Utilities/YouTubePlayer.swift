@@ -133,6 +133,7 @@ public class YouTubePlayer: UIView {
         config.allowsInlineMediaPlayback = true
         config.mediaTypesRequiringUserActionForPlayback = []
         config.userContentController = userContentController
+        config.allowsPictureInPictureMediaPlayback
         
         let view = WKWebView(frame: .zero, configuration: config)
         view.scrollView.isScrollEnabled = false
