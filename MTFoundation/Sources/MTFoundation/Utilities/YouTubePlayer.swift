@@ -106,7 +106,7 @@ public class YouTubePlayer: UIView {
     // MARK: Attributes
     private(set) var currentTime: Int = 0
     public var playVideoWhenReady = false
-    public var playerVariables: [PlayerVariables] = [.playsInline, .controls, .showInfo]
+    public var playerVariables: [PlayerVariables] = [.controls, .showInfo]
     
     public weak var delegate: PlayerDelegate?
     
