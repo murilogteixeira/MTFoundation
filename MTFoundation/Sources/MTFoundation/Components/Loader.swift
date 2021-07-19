@@ -20,9 +20,9 @@ public class Loader: UIView {
         public init(
             backgroundColor: UIColor = .clear,
             activityIndicatorViewColor: UIColor = .clear,
-            activityIndicatorViewSize: CGFloat = 50
+            activityIndicatorViewSize: CGFloat = 50,
             activityIndicatorColor: UIColor = .black,
-            activityIndicatorStyle: UIActivityIndicatorView.Style = .gray,
+            activityIndicatorStyle: UIActivityIndicatorView.Style = .gray
         ) {
             self.backgroundColor = backgroundColor
             self.activityIndicatorViewColor = activityIndicatorViewColor
