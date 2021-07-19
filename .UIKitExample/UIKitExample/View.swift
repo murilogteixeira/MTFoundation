@@ -37,9 +37,10 @@ extension View: ViewCode {
     }
 
     func setupAdditionalConfiguration() {
-        let loader = Loader()
-        loader.activityIndicator.style = .medium
-        loader.activityIndicator.color = .white
-        Loader.add(loader, in: self)
+        var configurarion = Loader.Configuration()
+        configurarion.activityIndicatorStyle = .medium
+        configurarion.activityIndicatorColor = .white
+        configurarion.activityIndicatorViewColor = .black.withAlphaComponent(0.8)
+        Loader.add(in: self, with: configurarion)
     }
 }

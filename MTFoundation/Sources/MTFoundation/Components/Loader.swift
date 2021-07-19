@@ -39,6 +39,7 @@ public class Loader: UIView {
             activityIndicator.color = configuration.activityIndicatorColor
             activityIndicatorView.backgroundColor = configuration.activityIndicatorViewColor
             activityIndicator.style = configuration.activityIndicatorStyle
+            activityIndicatorViewSizeConstraint.constant = configuration.activityIndicatorViewSize
         }
     }
 
@@ -51,7 +52,7 @@ public class Loader: UIView {
         return activityIndicator
     }()
 
-    private lazy var activityIndicatorViewSizeConstraint = activityIndicatorView.pinWidth.constant(0)
+    private lazy var activityIndicatorViewSizeConstraint = activityIndicatorView.pinWidth.constant(0, isActive: false)
     public lazy var activityIndicatorView = UIView(backgroundColor: configuration.activityIndicatorViewColor)
 
     // MARK: Initializers
@@ -83,14 +84,15 @@ public class Loader: UIView {
 extension Loader: ViewCode {
     public func setupHierarchy() {
         addSubview(activityIndicatorView)
-        activityIndicatorView.addSubview(activityIndicator)
+        addSubview(activityIndicator)
     }
 
     public func setupConstraints() {
         activityIndicatorView.pinCenter.to(self)
+        activityIndicatorViewSizeConstraint.isActive = true
         activityIndicatorView.pinHeight.to(activityIndicatorView, location: .width)
 
-        activityIndicator.pinCenter.to(activityIndicatorView)
+        activityIndicator.pinCenter.to(self)
     }
 
     public func setupAdditionalConfiguration() {
