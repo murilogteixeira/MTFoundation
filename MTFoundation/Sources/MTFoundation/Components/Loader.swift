@@ -11,11 +11,11 @@ public class Loader: UIView {
 
     // MARK: Configuration
     public struct Configuration {
-        let backgroundColor: UIColor
-        let activityIndicatorViewColor: UIColor
-        let activityIndicatorViewSize: CGFloat
-        let activityIndicatorColor: UIColor
-        let activityIndicatorStyle: UIActivityIndicatorView.Style
+        public var backgroundColor: UIColor
+        public var activityIndicatorViewColor: UIColor
+        public var activityIndicatorViewSize: CGFloat
+        public var activityIndicatorColor: UIColor
+        public var activityIndicatorStyle: UIActivityIndicatorView.Style
 
         public init(
             backgroundColor: UIColor = .clear,
