@@ -66,10 +66,12 @@ public class Loader: UIView {
 
     // MARK: Methods
     public static func add(in view: UIView, with configuration: Configuration = .init()) {
-        let loader = Loader()
-        view.addSubview(loader)
-        loader.pinEdge.to(view)
-        loader.configuration = configuration
+        DispatchQueue.main.async {
+            let loader = Loader()
+            view.addSubview(loader)
+            loader.pinEdge.to(view)
+            loader.configuration = configuration
+        }
     }
 
     public static func remove(from view: UIView) {
