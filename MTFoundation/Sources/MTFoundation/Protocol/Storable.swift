@@ -9,7 +9,7 @@ import Foundation
 
 private var userDefaults: UserDefaults { UserDefaults.standard }
 
-protocol Storable {
+public protocol Storable {
     var rawValue: String { get }
     func value<T>() -> T?
     func set<T>(_ value: T)
