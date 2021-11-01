@@ -7,8 +7,6 @@
 
 import Foundation
 
-private var userDefaults: UserDefaults { UserDefaults.standard }
-
 public protocol Storable {
     var rawValue: String { get }
     func value<T>() -> T?
@@ -16,6 +14,8 @@ public protocol Storable {
 }
 
 extension Storable {
+    private var userDefaults: UserDefaults { UserDefaults.standard }
+
     func value<T>() -> T? { userDefaults.object(forKey: rawValue) as? T }
     func set<T>(_ value: T) { userDefaults.set(value, forKey: rawValue) }
 }
