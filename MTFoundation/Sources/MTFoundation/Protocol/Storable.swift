@@ -13,7 +13,7 @@ public protocol Storable {
     func set<T>(_ value: T)
 }
 
-extension Storable {
+public extension Storable {
     private var userDefaults: UserDefaults { UserDefaults.standard }
 
     func value<T>() -> T? { userDefaults.object(forKey: rawValue) as? T }
