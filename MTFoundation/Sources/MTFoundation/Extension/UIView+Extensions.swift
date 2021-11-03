@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: CornerRadius
 public extension UIView {
     
     convenience init(backgroundColor: UIColor) {
@@ -31,4 +32,11 @@ public extension CACornerMask {
     static var bottom: CACornerMask { [leftBottom, rightBottom] }
     static var right: CACornerMask { [rightTop, rightBottom] }
     static var all: CACornerMask { [leftTop, rightTop, .leftBottom, .rightBottom] }
+}
+
+// MARK: Subview
+public extension UIView {
+    func addSubviews(_ views: [UIView]) {
+        views.forEach { addSubview($0) }
+    }
 }
