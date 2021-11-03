@@ -60,4 +60,8 @@ public extension UIStackView {
         
         return view
     }
+
+    func addArrangedSubviews(_ views: [UIView]) {
+        views.forEach { addArrangedSubview($0) }
+    }
 }
