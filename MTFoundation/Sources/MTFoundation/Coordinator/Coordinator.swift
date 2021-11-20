@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol Coordinator: AnyObject {
+public protocol Coordinator: AnyObject {
     var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController { get set }
     func childDidFinish(_ child: Coordinator?)
 }
 
-protocol CoordinatorRoute { }
+public protocol CoordinatorRoute { }
 
 

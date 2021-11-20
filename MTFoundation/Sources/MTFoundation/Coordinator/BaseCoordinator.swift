@@ -7,18 +7,18 @@
 
 import UIKit
 
-class BaseCoordinator<RouteType: CoordinatorRoute>: Coordinator {
-    var childCoordinators: [Coordinator]
-    var navigationController: UINavigationController
-    weak var parentCoordinator: Coordinator?
+public class BaseCoordinator<RouteType: CoordinatorRoute>: Coordinator {
+    public var childCoordinators: [Coordinator]
+    public var navigationController: UINavigationController
+    public weak var parentCoordinator: Coordinator?
 
-    init(navigationController: UINavigationController, initialRoute route: RouteType) {
+    public init(navigationController: UINavigationController, initialRoute route: RouteType) {
         self.childCoordinators = []
         self.navigationController = navigationController
         prepareTransition(for: route)
     }
 
-    func trigger(_ route: RouteType) {
+    public func trigger(_ route: RouteType) {
         DispatchQueue.main.async { [weak self] in
             self?.prepareTransition(for: route)
         }
@@ -26,7 +26,7 @@ class BaseCoordinator<RouteType: CoordinatorRoute>: Coordinator {
 
     func prepareTransition(for route: RouteType) { }
 
-    func childDidFinish(_ child: Coordinator?) {
+    public func childDidFinish(_ child: Coordinator?) {
         childCoordinators.removeAll(where: { $0 === child })
     }
 }
