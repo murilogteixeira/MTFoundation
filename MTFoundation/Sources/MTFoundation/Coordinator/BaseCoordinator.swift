@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class BaseCoordinator<RouteType: CoordinatorRoute>: Coordinator {
+open class BaseCoordinator<RouteType: CoordinatorRoute>: Coordinator {
     public var childCoordinators: [Coordinator]
     public var navigationController: UINavigationController
     public weak var parentCoordinator: Coordinator?
