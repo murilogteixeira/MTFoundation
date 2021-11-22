@@ -9,12 +9,12 @@ import UIKit
 
 open class BaseCoordinator<RouteType: CoordinatorRoute>: Coordinator {
     public var childCoordinators: [Coordinator]
-    public var rootViewController: UINavigationController
+    public var navigationController: UINavigationController
     public weak var parentCoordinator: Coordinator?
 
     public init(navigationController: UINavigationController, initialRoute route: RouteType) {
         self.childCoordinators = []
-        self.rootViewController = navigationController
+        self.navigationController = navigationController
         prepareTransition(for: route)
     }
 
