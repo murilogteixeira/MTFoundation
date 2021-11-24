@@ -12,7 +12,7 @@ open class BaseCoordinator<RouteType: CoordinatorRoute>: Coordinator {
     public var navigationController: UINavigationController
     public weak var parentCoordinator: Coordinator?
 
-    public init(navigationController: UINavigationController, parentCoordinator: Coordinator, initialRoute route: RouteType) {
+    public init(navigationController: UINavigationController, parentCoordinator: Coordinator?, initialRoute route: RouteType) {
         self.navigationController = navigationController
         self.parentCoordinator = parentCoordinator
         prepareTransition(for: route)
