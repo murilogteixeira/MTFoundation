@@ -8,12 +8,12 @@
 import UIKit
 
 open class BaseCoordinator<RouteType: CoordinatorRoute>: Coordinator {
-    public var childCoordinators: [Coordinator]
+    public var children: [Coordinator]
     public var navigationController: UINavigationController
     public weak var parentCoordinator: Coordinator?
 
     public init(navigationController: UINavigationController, initialRoute route: RouteType) {
-        self.childCoordinators = []
+        self.children = []
         self.navigationController = navigationController
         prepareTransition(for: route)
     }
@@ -27,6 +27,6 @@ open class BaseCoordinator<RouteType: CoordinatorRoute>: Coordinator {
     open func prepareTransition(for route: RouteType) { }
 
     public func childDidFinish(_ child: Coordinator?) {
-        childCoordinators.removeAll(where: { $0 === child })
+        children.removeAll(where: { $0 === child })
     }
 }
