@@ -27,6 +27,8 @@ open class BaseCoordinator<RouteType: CoordinatorRoute>: Coordinator {
     open func prepareTransition(for route: RouteType) { }
 
     public func childDidFinish(_ child: Coordinator?) {
-        children.removeAll(where: { $0 === child })
+        if let index = children.firstIndex(where: { $0 === child }) {
+            children.remove(at: index)
+        }
     }
 }
